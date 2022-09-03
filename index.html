@@ -30,8 +30,13 @@
 </head>
 
 <body>
-    <button onclick="">Нажми сюда!</button>
-    <script src="script.js"></script>
+    <button onclick="greetUser()">Нажми сюда!</button>
+    <script>
+        function greetUser() {
+            let name = prompt('Как тебя зовут?');
+            alert(`Привет, ${name}!`)
+        }
+    </script>
 </body>
 
 </html>
