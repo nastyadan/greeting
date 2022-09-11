@@ -8,33 +8,62 @@
     <title>Greeting</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
             height: 100vh;
         }
 
-        button {
-            width: 20vw;
-            height: 20vh;
-            border-radius: 10%;
-            font-size: larger;
-            font-weight: 700;
-        }
-
-        button:hover {
-            cursor: pointer;
-            border: 2px solid palevioletred;
+        .div {
+            background-color: aquamarine;
         }
     </style>
 </head>
 
 <body>
-    <button onclick="greetUser()">Нажми сюда!</button>
+    <div class="div" onclick="changeColorFirst()">
+        <form>
+            <label for="name"> Как тебя зовут?</label>
+            <p><input type="text" id="name" name="name" placeholder="Имя" autofocus></p>
+            <p><input type="button" name="save" value="Сохранить" onclick="clickMe()"></p>
+            <div id="greeting"></div>
+        </form>
+    </div>
+    <div class="div" onclick="changeColorSecond()">
+        <img src="assets/images/cat1.jpg" alt="" id="catImage" height="500px" width="500px">
+        <div>
+            <button onclick="changePictureLeft()">Назад</button>
+            <button onclick="changePictureRight()">Вперед</button>
+        </div>
+    </div>
+
     <script>
-        function greetUser() {
-            let name = prompt('Как тебя зовут?');
-            alert(`Привет, ${name}!`)
+        function clickMe() {
+            let userName =
+                document.getElementById('name');
+
+            console.log(userName.value);
+        }
+
+
+
+        function changePictureRight() {
+            let catImage = document.getElementById('catImage');
+            catImage.src = "assets/images/cat2.jpg";
+        }
+
+        function changePictureLeft() {
+            let catImage = document.getElementById('catImage');
+            catImage.src = "assets/images/cat3.jpg";
+        }
+
+        function changeColorFirst() {
+            let divColor = document.getElementsByClassName('div');
+            divColor[0].style.backgroundColor = '#4444';
+
+        }
+
+        function changeColorSecond() {
+            let divColor = document.getElementsByClassName('div');
+            divColor[1].style.backgroundColor = 'pink';
         }
     </script>
 </body>
