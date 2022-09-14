@@ -13,19 +13,19 @@
         }
 
         .div {
-            background-color: aquamarine;
+            background-color: rgb(214, 127, 255);
         }
     </style>
 </head>
 
 <body>
     <div class="div" onclick="changeColorFirst()">
-        <form>
+        <p>
             <label for="name"> Как тебя зовут?</label>
             <p><input type="text" id="name" name="name" placeholder="Имя" autofocus></p>
             <p><input type="button" name="save" value="Сохранить" onclick="clickMe()"></p>
-            <div id="greeting"></div>
-        </form>
+            <p><input id="sayHi" placeholder="Привет!" onclick="sayHi()"></input></p>
+            </form>
     </div>
     <div class="div" onclick="changeColorSecond()">
         <img src="assets/images/cat1.jpg" alt="" id="catImage" height="500px" width="500px">
@@ -36,6 +36,9 @@
     </div>
 
     <script>
+        let userName =
+            document.getElementById('name');
+
         function clickMe() {
             let userName =
                 document.getElementById('name');
@@ -43,7 +46,9 @@
             console.log(userName.value);
         }
 
-
+        function sayHi() {
+            document.getElementById('sayHi').value = `Привет, ` + document.getElementById('name').value;
+        }
 
         function changePictureRight() {
             let catImage = document.getElementById('catImage');
@@ -54,6 +59,7 @@
             let catImage = document.getElementById('catImage');
             catImage.src = "assets/images/cat3.jpg";
         }
+
 
         function changeColorFirst() {
             let divColor = document.getElementsByClassName('div');
